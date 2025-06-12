@@ -1,0 +1,119 @@
+---
+execute:
+  echo: true
+format:
+  revealjs:
+    width: 1245
+    height: 900
+    menu: false
+    controls: true
+    transition: fade
+    auto-stretch: false
+    embed-resources: false
+    toc: false
+    center: true
+    slide-number: false
+    preview-links: false
+    theme:
+        - simple
+        - style/style_background.scss
+---
+
+## { .custom-title }
+
+&#32; 
+
+::: {.notes}
+Change from (800, 600) for 4x3 or (1245, 700) for 16x9
+Key points:
+- Workshop not talks
+- Workshop structure
+- Data Storytelling: how we will approach the workshop
+- About me
+- Workshop materials
+- Activity 1: The judging hat
+- Next:
+  - Part 1 - Block 2: Public Speaking
+
+TODO:
+- Select the content for the BAD presentation.
+- Create the slides for the BAD presentation.
+- Pass to 2 columns (why we make presentations, what types of presentations)
+- Create 3 columns for the workshop structure
+- Add numbers to the workshop figure
+- Improve the graph of "my story in 4 graphics"
+:::
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 500px; top: 500px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
+[Python and Data Storytelling <br> to create and deliver better presentations]{style="font-size: 40px; font-weight: bold; margin: 0px"} <br>
+[Sebastián Flores, EuroPyCon 2025]{style="font-size: 25px;"}
+:::
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
+[Part 1 - Block 1]{style="font-size: 20px; margin: 0px;"} <br>
+[Setting expectations]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
+:::
+
+---
+
+::: {.callout-warning title="Note #1" .fragment}
+This presentation has workshop format - not talk format.
+
+Do as I say, not as I do.
+:::
+
+::: {.callout-tip title="Note #2" .fragment}
+This presentation was done with quarto!  
+(I'll teach you how!)
+:::
+
+---
+
+## Workshop Structure
+
+* **Part 1**: 90 minutes
+* **Coffee Break**: 15 minutes
+* **Part 2**: 90 minutes
+
+
+---
+
+## Data Storytelling
+
+Data Storytelling:  
+Tricks and tools to deliver better (data) presentations.
+
+I prefer to say "Practical Storytelling" because it applies to more than just data.
+
+---
+
+
+## Why do we make presentations?
+
+- Work: 
+  - To inform
+  - To take action
+  - To take decisions
+- Personal:
+  - To share knowledge
+  - To get feedback
+  - To expand our network
+
+---
+
+## What types of talks do you give?
+
+- Party small talk
+- Ted talk
+- Scientific talk
+- Work presentation
+- Conference talk
+- Tutorial
+- Workshop
+- ...
