@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="120.78740157480317"
+   height="57.795275590551185"
+   version="1.1"
+   id="svg96"
+   sodipodi:docname="test_default.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs96" />
+  <sodipodi:namedview
+     id="namedview96"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.0833787"
+     inkscape:cx="60.489124"
+     inkscape:cy="13.469238"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg96" />
+  <rect
+     style="fill:none;stroke:#1a1a1a"
+     id="rect96"
+     width="13.469238"
+     height="13.469238"
+     x="13.469238"
+     y="9.7958097" />
+  <ellipse
+     style="fill:none;stroke:#1a1a1a"
+     id="path1"
+     cx="103.83558"
+     cy="18.48959"
+     rx="8.8162289"
+     ry="8.9386759" />
+  <text
+     xml:space="preserve"
+     style="font-size:26.6667px;font-family:Sebastiandres;-inkscape-font-specification:Sebastiandres;text-align:center;text-anchor:middle;fill:none;stroke:#1a1a1a"
+     x="60.73402"
+     y="48.489254"
+     id="text1"><tspan
+       sodipodi:role="line"
+       id="tspan1"
+       x="60.73402"
+       y="48.489254">LOREM_IPSUM</tspan></text>
+</svg>

@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto.css">
   <link href="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -328,9 +393,80 @@
 <section id="section" class="slide level2 custom-title center">
 <h2></h2>
 <p> </p>
+</section>
+<section id="section-1" class="slide level2 custom-title center">
+<h2></h2>
+<div style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;">
+<p><span style="font-size: 40px; font-weight: bold; margin: 0px">Streamlit, Axidraw y aprendiendo a aprender</span> <br> <span style="font-size: 25px;">Sebastián Flores, PyDay Valparaíso 2025</span></p>
+</div>
+</section>
+<section id="section-2" class="slide level2 custom-title center">
+<h2></h2>
+<div style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;">
+<p><span style="font-size: 40px; font-weight: bold; margin: 0px">Echando a perder se aprende</span> <br> <span style="font-size: 25px;">Sebastián Flores, PyDay Valparaíso 2025</span></p>
+</div>
+</section>
+<section id="agenda" class="slide level2 center">
+<h2>Agenda</h2>
+<div>
+<ul>
+<li class="fragment">Axidraw</li>
+<li class="fragment">Streamlit</li>
+<li class="fragment">Axidraw + Streamlit</li>
+</ul>
+</div>
+</section>
+<section id="section-3" class="slide level2 custom-title center">
+<h2></h2>
+<div style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;">
+<p><span style="font-size: 40px; font-weight: bold; margin: 0px">AXIDRAW</span> <br></p>
+</div>
+</section>
+<section id="section-4" class="slide level2 center">
+<h2></h2>
+<p><img data-src="images/axidraw.jpg" style="width:80.0%"></p>
+<p>Axidraw es un dispositivo que toma un lápiz y se desplaza en un único plano, permitiendo realizar trazados de líneas.</p>
+</section>
+<section id="restricciones" class="slide level2 center">
+<h2>Restricciones</h2>
+<div>
+<ul>
+<li class="fragment">Axidraw sólo entiende <strong>líneas</strong>.</li>
+<li class="fragment">No es posible dibujar imágenes (png/jpg/etc).</li>
+<li class="fragment">Sí es posible dibujar imágenes vectoriales (svg).</li>
+</ul>
+</div>
+</section>
+<section id="cómo-se-usa" class="slide level2 center">
+<h2>¿Cómo se usa?</h2>
+<div>
+<ul>
+<li class="fragment">Inkscape</li>
+<li class="fragment">Python API</li>
+</ul>
+</div>
+</section>
+<section id="section-5" class="slide level2 center">
+<h2></h2>
+<p>[Procede a demostrar como usar en Inkscape]</p>
+</section>
+<section id="actividad-1-5-mins" class="slide level2 center">
+<h2>Actividad #1 (5 mins)</h2>
+<p>Crear un svg <strong>simple</strong> y compartirlo. El más votado será dibujado con Axidraw.</p>
+<p>Opciones:</p>
+<ul>
+<li><a href="https://excalidraw.com">excalidraw.com</a></li>
+<li><a href="https://canva.com">canva.com</a></li>
+<li>Cualquier otro que permita generar un svg: figma, lucidchart, draw.io, diagrams.net, draw.io, diagrams.net</li>
+</ul>
+</section>
+<section id="actividad-1-5-mins-1" class="slide level2 center">
+<h2>Actividad #1 (5 mins)</h2>
+<p>Subir a la siguiente carpeta:</p>
+<p><img data-src="images/qr_actividad_1.png" width="400"></p>
+<p><a href="https://tinyurl.com/9dt6yjjp">https://tinyurl.com/9dt6yjjp</a></p>
 <aside class="notes">
-<p>Change from (800, 600) for 4x3 or (1245, 700) for 16x9 Key points: - Workshop not talks - Workshop structure - Data Storytelling: how we will approach the workshop - About me - Workshop materials - Activity 1: The judging hat - Next: - Part 1 - Block 2: Public Speaking</p>
-<p>TODO: - Select the content for the BAD presentation. - Create the slides for the BAD presentation. - Pass to 2 columns (why we make presentations, what types of presentations) - Create 3 columns for the workshop structure - Add numbers to the workshop figure - Improve the graph of “my story in 4 graphics”</p>
+<p>Original: https://drive.google.com/drive/folders/1jSUiMKwNAMcfcRnziaj2fir1s3qy375K?usp=sharing</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -343,96 +479,224 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-1" class="slide level2 custom-title center">
-<h2></h2>
-<div style="position: absolute; left: 500px; top: 500px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;">
-<p><span style="font-size: 40px; font-weight: bold; margin: 0px">Python and Data Storytelling <br> to create and deliver better presentations</span> <br> <span style="font-size: 25px;">Sebastián Flores, EuroPyCon 2025</span></p>
-</div>
+<section class="slide level2 center">
+
+<p>[Votación de los svgs &amp; impresión con Axidraw en Inkscape]</p>
 </section>
-<section id="section-2" class="slide level2 custom-title center">
-<h2></h2>
-<div style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;">
-<p><span style="font-size: 20px; margin: 0px;">Part 1 - Block 1</span> <br> <span style="font-size: 30px; font-weight: bold; margin: 0px">Setting expectations</span> <br></p>
+<section id="axidraw-python-api" class="slide level2 center">
+<h2>Axidraw Python API</h2>
+<h5 id="ahora-la-cosa-se-pone-interesante">Ahora la cosa se pone interesante…</h5>
+<p>Enlace: <a href="https://axidraw.com/doc/py_api/">https://axidraw.com/doc/py_api/</a></p>
+<p><img data-src="images/axidraw_python_api.png" style="width:80.0%"></p>
+</section>
+<section id="librería-pyaxidraw" class="slide level2 center">
+<h2>Librería pyaxidraw</h2>
+<ul>
+<li>Instalar librería: <span style="font-size: 28px;"><code>python -m pip install https://cdn.evilmadscientist.com/dl/ad/public/AxiDraw_API.zip</code></span></li>
+<li>Importar librería: <span style="font-size: 28px;"><code>from pyaxidraw import axidraw</code></span></li>
+</ul>
+</section>
+<section id="uso-simple" class="slide level2 center">
+<h2>Uso simple</h2>
+<h5 id="dibujar-un-svg-importado">Dibujar un svg importado</h5>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> pyaxidraw <span class="im">import</span> axidraw</span>
+<span id="cb1-2"><a href=""></a>ad <span class="op">=</span> axidraw.AxiDraw()</span>
+<span id="cb1-3"><a href=""></a>ad.plot_setup(<span class="st">"mysvg.svg"</span>)</span>
+<span id="cb1-4"><a href=""></a>ad.plot_run()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="uso-interactivo" class="slide level2 center">
+<h2>Uso interactivo</h2>
+<h5 id="mover-el-lápiz">Mover el lápiz</h5>
+<p>Comandos:</p>
+<ul>
+<li><code>ad.pen_up()</code>: Levanta el lápiz</li>
+<li><code>ad.pen_down()</code>: Baja el lápiz</li>
+<li><code>ad.moveto(x, y)</code>: Mueve el lápiz a las coordenadas (x, y) sin dibujar</li>
+<li><code>ad.lineto(x, y)</code>: Mueve el lápiz a las coordenadas (x, y) y dibuja</li>
+</ul>
+</section>
+<section id="svg-scalable-vector-graphics" class="slide level2 center">
+<h2>SVG: Scalable Vector Graphics</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>SVG es un archivo de texto que describe un dibujo a partir de líneas y figuras geométricas básicas.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/example_original.svg"></p>
 </div>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>&lt;svg width="256" height="256"&gt;</span>
+<span id="cb2-2"><a href=""></a>    &lt;rect</span>
+<span id="cb2-3"><a href=""></a>        style="fill:none;stroke:#1a1a1a;stroke-width:0.5;stroke-dasharray:none"</span>
+<span id="cb2-4"><a href=""></a>        width="211"</span>
+<span id="cb2-5"><a href=""></a>        height="104"</span>
+<span id="cb2-6"><a href=""></a>        x="26"</span>
+<span id="cb2-7"><a href=""></a>        y="106" /&gt;</span>
+<span id="cb2-8"><a href=""></a>    &lt;ellipse</span>
+<span id="cb2-9"><a href=""></a>        style="fill:#ff0000;stroke:#800000;stroke-width:2;stroke-dasharray:6,6;stroke-dashoffset:0"</span>
+<span id="cb2-10"><a href=""></a>        cx="131"</span>
+<span id="cb2-11"><a href=""></a>        cy="92"</span>
+<span id="cb2-12"><a href=""></a>        rx="52"</span>
+<span id="cb2-13"><a href=""></a>        ry="48" /&gt;</span>
+<span id="cb2-14"><a href=""></a>    &lt;text</span>
+<span id="cb2-15"><a href=""></a>        style="font-size:26px;font-family:Arial;fill:#00ffff;stroke:#0000ff;stroke-width:1.5</span>
+<span id="cb2-16"><a href=""></a>        x="134"</span>
+<span id="cb2-17"><a href=""></a>        y="34"</span>
+<span id="cb2-18"><a href=""></a>        &gt;Hola Mundo&lt;/text&gt;</span>
+<span id="cb2-19"><a href=""></a>    &lt;path</span>
+<span id="cb2-20"><a href=""></a>        style="fill:none;stroke:#008000;stroke-width:5;stroke-dasharray:none"</span>
+<span id="cb2-21"><a href=""></a>        d="M 22,234 225,33" /&gt;</span>
+<span id="cb2-22"><a href=""></a>&lt;/svg&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="section-6" class="slide level2 center">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/example_original.svg" class="fragment fragment-index-1" style="width:200.0%"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/example_axidraw.svg" class="fragment fragment-index-2" style="width:200.0%"></p>
+</div>
+</div>
+<p><span class="fragment fragment-index-3">Axidraw no ve colores, anchos de línea (stroke-width) o rellenos (fill). Solo ve líneas y figuras transparentes.</span></p>
 </section>
 <section class="slide level2 center">
 
-<div class="fragment" title="Note #1">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note #1</strong></p>
-</div>
-<div class="callout-content">
-<p>This presentation has workshop format - not talk format.</p>
-<p>Do as I say, not as I do.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment" title="Note #2">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note #2</strong></p>
-</div>
-<div class="callout-content">
-<p>This presentation was done with quarto!<br>
-(I’ll teach you how!)</p>
-</div>
-</div>
-</div>
+<p>[Procede a mostrar código python]</p>
+</section>
+<section id="actividad-2-5-mins" class="slide level2 center">
+<h2>Actividad #2 (5 mins)</h2>
+<p>Usando la hoja proporcionada de referencia, realizar un dibujo (cualquier cosa).</p>
+</section>
+<section id="section-7" class="slide level2 custom-title center">
+<h2></h2>
+<div style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;">
+<p><span style="font-size: 40px; font-weight: bold; margin: 0px">STREAMLIT</span> <br></p>
 </div>
 </section>
-<section id="workshop-structure" class="slide level2 center">
-<h2>Workshop Structure</h2>
+<section id="qué-es-streamlit" class="slide level2 center">
+<h2>¿Qué es Streamlit?</h2>
+<p>Streamlit es una librería de Python que permite crear aplicaciones web interactivas.</p>
+<p>Instalar:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="ex">pip</span> install streamlit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Importar:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">import</span> streamlit <span class="im">as</span> st</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ejemplo-mínimo" class="slide level2 center">
+<h2>Ejemplo mínimo</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a><span class="cf">if</span> st.button(<span class="st">"Hola"</span>):</span>
+<span id="cb5-4"><a href=""></a>    st.write(<span class="st">"Mundo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ventajas-de-streamlit" class="slide level2 center">
+<h2>Ventajas de Streamlit</h2>
+<div>
 <ul>
-<li><strong>Part 1</strong>: 90 minutes</li>
-<li><strong>Coffee Break</strong>: 15 minutes</li>
-<li><strong>Part 2</strong>: 90 minutes</li>
+<li class="fragment">MUY fácil de usar</li>
+<li class="fragment">Lógica 100% pythonista</li>
+<li class="fragment">Excelente documentación:<br>
+<a href="https://docs.streamlit.io/develop/api-reference">https://docs.streamlit.io/develop/api-reference</a></li>
+<li class="fragment">Fácil de compartir en línea</li>
+</ul>
+</div>
+</section>
+<section id="actividad-3-10-mins" class="slide level2 center">
+<h2>Actividad #3 (10 mins)</h2>
+<p>Crear una app de Streamlit que:</p>
+<ul>
+<li>Reciba una temperatura en grados Fahrenheit, con un valor por defecto de 50.</li>
+<li>Calcule la temperatura en grados Celsius<br>
+<code>T_celsius = (T_fahrenheit - 32) * 5/9</code></li>
+<li>Muestre la temperatura en grados Celsius, con 1 decimal.</li>
+<li>Si la temperature es menor a 0 °C, diga “¡Está helado Juan!”</li>
+<li>Si la temperature es mayor a 35 °C, diga “¡A la piscina, Juancho!”</li>
 </ul>
 </section>
-<section id="data-storytelling" class="slide level2 center">
-<h2>Data Storytelling</h2>
-<p>Data Storytelling:<br>
-Tricks and tools to deliver better (data) presentations.</p>
-<p>I prefer to say “Practical Storytelling” because it applies to more than just data.</p>
+<section id="actividad-3-10-mins-1" class="slide level2 center">
+<h2>Actividad #3 (10 mins)</h2>
+<p>Opciones: - Instalar streamlit en tu computadora - Usar stlite en línea (no necesitas instalación): <a href="https://edit.share.stlite.net/?sampleAppId=template">https://edit.share.stlite.net</a></p>
 </section>
-<section id="why-do-we-make-presentations" class="slide level2 center">
-<h2>Why do we make presentations?</h2>
+<section id="actividad-3-10-mins-2" class="slide level2 center">
+<h2>Actividad #3 (10 mins)</h2>
+<p>Crear una app de Streamlit que:</p>
+<div>
 <ul>
-<li>Work:
-<ul>
-<li>To inform</li>
-<li>To take action</li>
-<li>To take decisions</li>
-</ul></li>
-<li>Personal:
-<ul>
-<li>To share knowledge</li>
-<li>To get feedback</li>
-<li>To expand our network</li>
-</ul></li>
+<li class="fragment">Reciba una temperatura en grados Fahrenheit, con un valor por defecto de 50. -&gt; <code>st.number_input</code></li>
+<li class="fragment">Calcule la temperatura en grados Celsius <code>T_celsius = (T_fahrenheit - 32) * 5/9</code></li>
+<li class="fragment">Muestre la temperatura en grados Celsius, con 1 decimal. -&gt; <code>f"{T_celsius:.1f} °C"</code></li>
+<li class="fragment">Si la temperature es menor a 0 C, diga “¡Está helado Juan!” -&gt; <code>if</code> &amp; <code>st.write</code></li>
+<li class="fragment">Si la temperature es mayor a 35 C, diga “¡A la piscina, Juancho!” -&gt; <code>if</code> &amp; <code>st.write</code></li>
 </ul>
+</div>
 </section>
-<section id="what-types-of-talks-do-you-give" class="slide level2 center">
-<h2>What types of talks do you give?</h2>
+<section id="actividad-3-10-mins-3" class="slide level2 center">
+<h2>Actividad #3 (10 mins)</h2>
+<h4 id="solución">Solución</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a>st.title(<span class="st">"Celsius a Fahrenheit"</span>)</span>
+<span id="cb6-4"><a href=""></a></span>
+<span id="cb6-5"><a href=""></a>T_fahrenheit <span class="op">=</span> st.number_input(<span class="st">"Temperatura en Fahrenheit"</span>, value<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb6-6"><a href=""></a></span>
+<span id="cb6-7"><a href=""></a>T_celsius <span class="op">=</span> (T_fahrenheit <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> <span class="dv">5</span><span class="op">/</span><span class="dv">9</span></span>
+<span id="cb6-8"><a href=""></a></span>
+<span id="cb6-9"><a href=""></a>T_celsius_str <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>T_celsius<span class="sc">:.1f}</span><span class="ss"> °C"</span></span>
+<span id="cb6-10"><a href=""></a>st.metric(label<span class="op">=</span><span class="st">"Temperatura en Celsius"</span>, value<span class="op">=</span>T_celsius_str)</span>
+<span id="cb6-11"><a href=""></a></span>
+<span id="cb6-12"><a href=""></a><span class="cf">if</span> T_celsius <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb6-13"><a href=""></a>    st.write(<span class="st">"¡Está helado, Juan!"</span>)</span>
+<span id="cb6-14"><a href=""></a>    </span>
+<span id="cb6-15"><a href=""></a><span class="cf">if</span> T_celsius <span class="op">&gt;=</span> <span class="dv">35</span>:</span>
+<span id="cb6-16"><a href=""></a>    st.write(<span class="st">"¡A la piscina, Juancho!"</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="section-8" class="slide level2 custom-title center">
+<h2></h2>
+<div style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;">
+<p><span style="font-size: 40px; font-weight: bold; margin: 0px">AXIDRAW + STREAMLIT</span> <br></p>
+</div>
+</section>
+<section id="fin" class="slide level2 center">
+<h2>¿FIN?</h2>
+</section>
+<section id="section-9" class="slide level2 custom-title center">
+<h2></h2>
+<div style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;">
+<p><span style="font-size: 40px; font-weight: bold; margin: 0px">Tras bambalinas…</span> <br></p>
+</div>
+</section>
+<section id="section-10" class="slide level2 center">
+<h2></h2>
+<div class="columns">
+<div class="column fragment fragment-index-1" style="width:50%;">
+<p>Expectativa</p>
+<p><img data-src="images/expectativa.png"></p>
+</div><div class="column fragment fragment-index-2" style="width:50%;">
+<p>Realidad</p>
+<p><img data-src="images/realidad.png"></p>
+</div>
+</div>
+</section>
+<section id="una-incómoda-verdad-1" class="slide level2 center">
+<h2>Una incómoda verdad #1</h2>
+<p><img data-src="images/taller.png"></p>
+</section>
+<section id="una-incómoda-verdad-2" class="slide level2 center">
+<h2>Una incómoda verdad #2</h2>
+<p><img data-src="images/practica.png" style="width:40.0%"></p>
+</section>
+<section id="consejo-para-la-vida" class="slide level2 center">
+<h2>Consejo para la vida</h2>
+<div>
 <ul>
-<li>Party small talk</li>
-<li>Ted talk</li>
-<li>Scientific talk</li>
-<li>Work presentation</li>
-<li>Conference talk</li>
-<li>Tutorial</li>
-<li>Workshop</li>
-<li>…</li>
+<li class="fragment">Atreverse a cometer errores</li>
+<li class="fragment">Disfrutar el proceso y no tomarse tan en serio “el éxito”</li>
 </ul>
+</div>
+</section>
+<section id="section-11" class="slide level2 custom-title center">
+<h2></h2>
+<div style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;">
+<p><span style="font-size: 80px; font-weight: bold; margin: 0px">¡GRACIAS!</span> <br> <span style="font-size: 40px; font-weight: bold; margin: 0px">Streamlit, Axidraw y aprendiendo a aprender</span> <br> <span style="font-size: 25px;">Sebastián Flores, PyDay Valparaíso 2025</span></p>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
