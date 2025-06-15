@@ -1,0 +1,433 @@
+---
+execute:
+  echo: true
+format:
+  revealjs:
+    width: 1245
+    height: 900
+    menu: false
+    controls: true
+    transition: fade
+    auto-stretch: false
+    embed-resources: false
+    toc: false
+    center: true
+    slide-number: false
+    preview-links: false
+    theme:
+        - simple
+        - style/style_background.scss
+---
+
+## { .custom-title }
+
+&#32; 
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;"}
+[Streamlit, Axidraw y aprendiendo a aprender]{style="font-size: 40px; font-weight: bold; margin: 0px"} <br>
+[Sebastián Flores, PyDay Valparaíso 2025]{style="font-size: 25px;"}
+:::
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;"}
+[Echando a perder se aprende]{style="font-size: 40px; font-weight: bold; margin: 0px"} <br>
+[Sebastián Flores, PyDay Valparaíso 2025]{style="font-size: 25px;"}
+:::
+
+---
+
+## Sobre mi
+
+::: columns
+::: {.column width=40%}
+![](images/seba_avatar_gmail.png)
+:::
+::: {.column width=60% .incremental}
+* sebastiandres
+* Python Chile & Streamlit Creator
+* Innovation Lead en uPlanner
+* Data *
+:::
+:::
+
+---
+
+## Agenda
+
+::: {.incremental}
+* Axidraw
+* Streamlit
+* Axidraw + Streamlit
+:::
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;"}
+[AXIDRAW]{style="font-size: 40px; font-weight: bold; margin: 0px"} <br>
+:::
+
+---
+
+## 
+![](images/axidraw.jpg){width=80%}
+
+Axidraw es un dispositivo que toma un lápiz y se desplaza en un único plano, permitiendo realizar trazados de líneas.
+
+---
+
+## Restricciones
+
+::: {.incremental}
+* Axidraw sólo entiende **líneas**.
+* No es posible dibujar imágenes (png/jpg/etc).
+* Sí es posible dibujar imágenes vectoriales (svg).
+:::
+
+---
+
+## ¿Cómo se usa?
+
+::: {.incremental}
+* Inkscape
+* Python API
+:::
+
+---
+
+## 
+
+[Procede a demostrar como usar en Inkscape]
+
+---
+
+## Actividad #1 (5 mins)
+
+Crear un svg **simple** y compartirlo.
+El más votado será dibujado con Axidraw.
+
+
+Opciones: 
+
+* [excalidraw.com](https://excalidraw.com)
+* [canva.com](https://canva.com)
+* Cualquier otro que permita generar un svg: figma, lucidchart, draw.io, diagrams.net, draw.io, diagrams.net
+
+---
+
+## Actividad #1 (5 mins)
+
+Subir a la siguiente carpeta: 
+
+![](images/qr_actividad_1.png){width=400px}
+
+[https://tinyurl.com/9dt6yjjp](https://tinyurl.com/9dt6yjjp)
+
+::: {.notes}
+Original: https://drive.google.com/drive/folders/1jSUiMKwNAMcfcRnziaj2fir1s3qy375K?usp=sharing
+:::
+
+---
+
+[Votación de los svgs & impresión con Axidraw en Inkscape]
+
+---
+
+## Axidraw Python API
+##### Ahora la cosa se pone interesante...
+
+Enlace: [https://axidraw.com/doc/py_api/](https://axidraw.com/doc/py_api/) 
+
+![](images/axidraw_python_api.png){width=80%}
+
+---
+
+## Librería pyaxidraw
+
+* Instalar librería: 
+  [`python -m pip install https://cdn.evilmadscientist.com/dl/ad/public/AxiDraw_API.zip`]{style="font-size: 28px;"}
+* Importar librería: 
+  [`from pyaxidraw import axidraw`]{style="font-size: 28px;"}
+
+---
+
+## Uso simple
+##### Dibujar un svg importado
+
+```python
+from pyaxidraw import axidraw
+ad = axidraw.AxiDraw()
+ad.plot_setup("mysvg.svg")
+ad.plot_run()
+```
+
+---
+
+## Uso interactivo
+##### Mover el lápiz
+
+Comandos:
+
+* `ad.pen_up()`: Levanta el lápiz
+* `ad.pen_down()`: Baja el lápiz
+* `ad.moveto(x, y)`: Mueve el lápiz a las coordenadas (x, y) sin dibujar
+* `ad.lineto(x, y)`: Mueve el lápiz a las coordenadas (x, y) y dibuja
+
+---
+
+## SVG: Scalable Vector Graphics
+
+::: columns
+:::{.column width=50%}
+SVG es un archivo de texto que describe un dibujo a partir de líneas y figuras geométricas básicas.
+:::
+:::{.column width=50%}
+![](images/example_original.svg)
+:::
+:::
+
+```code
+<svg width="256" height="256">
+    <rect
+        style="fill:none;stroke:#1a1a1a;stroke-width:0.5;stroke-dasharray:none"
+        width="211"
+        height="104"
+        x="26"
+        y="106" />
+    <ellipse
+        style="fill:#ff0000;stroke:#800000;stroke-width:2;stroke-dasharray:6,6;stroke-dashoffset:0"
+        cx="131"
+        cy="92"
+        rx="52"
+        ry="48" />
+    <text
+        style="font-size:26px;font-family:Arial;fill:#00ffff;stroke:#0000ff;stroke-width:1.5
+        x="134"
+        y="34"
+        >Hola Mundo</text>
+    <path
+        style="fill:none;stroke:#008000;stroke-width:5;stroke-dasharray:none"
+        d="M 22,234 225,33" />
+</svg>
+```
+
+
+---
+
+## 
+
+::: columns
+:::{.column width=50%}
+![](images/example_original.svg){width=200% .fragment .fragment-index-1}
+:::
+:::{.column width=50%}
+![](images/example_axidraw.svg){width=200% .fragment .fragment-index-2}
+:::
+:::
+
+[Axidraw no ve colores, anchos de línea (stroke-width) o rellenos (fill). Solo ve líneas y figuras transparentes.]{.fragment .fragment-index-3}
+
+---
+
+[Procede a mostrar código python]
+
+---
+
+## Actividad #2 (5 mins)
+
+Usando la hoja proporcionada de referencia, realizar un dibujo (cualquier cosa).
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;"}
+[STREAMLIT]{style="font-size: 40px; font-weight: bold; margin: 0px"} <br>
+:::
+
+---
+
+## ¿Qué es Streamlit?
+
+Streamlit es una librería de Python que permite crear aplicaciones web interactivas.
+
+Instalar: 
+
+```bash
+pip install streamlit
+```
+
+Importar:
+
+```python
+import streamlit as st
+```
+
+---
+
+## Ejemplo mínimo
+
+```python
+import streamlit as st
+
+if st.button("Hola"):
+    st.write("Mundo")
+```
+
+---
+
+## Ventajas de Streamlit
+
+::: {.incremental}
+* MUY fácil de usar
+* Lógica 100% pythonista
+* Excelente documentación:  
+  [https://docs.streamlit.io/develop/api-reference](https://docs.streamlit.io/develop/api-reference)
+* Fácil de compartir en línea
+:::
+
+---
+
+## Actividad #3 (10 mins)
+
+Crear una app de Streamlit que:
+
+::: {.incremental}
+* Reciba una temperatura en grados Fahrenheit, con un valor por defecto de 50.
+* Calcule la temperatura en grados Celsius  
+  `T_celsius = (T_fahrenheit - 32) * 5/9`
+* Muestre la temperatura en grados Celsius, con 1 decimal.
+* Si la temperature es menor a 0 °C, diga "¡Está helado Juan!"
+* Si la temperature es mayor a 35 °C, diga "¡A la piscina, Juancho!"
+:::
+
+---
+
+## Actividad #3 (10 mins)
+
+Opciones:
+- Instalar streamlit en tu computadora
+- Usar stlite en línea (no necesitas instalación): [https://edit.share.stlite.net](https://edit.share.stlite.net/?sampleAppId=template)
+
+
+---
+
+## Actividad #3 (10 mins)
+
+Crear una app de Streamlit que:
+
+::: {.incremental}
+* Reciba una temperatura en grados Fahrenheit, con un valor por defecto de 50. -> `st.number_input`
+* Calcule la temperatura en grados Celsius
+  `T_celsius = (T_fahrenheit - 32) * 5/9`
+* Muestre la temperatura en grados Celsius, con 1 decimal. -> `f"{T_celsius:.1f} °C"`
+* Si la temperature es menor a 0 C, diga "¡Está helado Juan!" -> `if` & `st.write`
+* Si la temperature es mayor a 35 C, diga "¡A la piscina, Juancho!" -> `if` & `st.write`
+:::
+
+---
+
+## Actividad #3 (10 mins)
+#### Solución
+
+```python
+import streamlit as st
+
+st.title("Celsius a Fahrenheit")
+
+T_fahrenheit = st.number_input("Temperatura en Fahrenheit", value=50)
+
+T_celsius = (T_fahrenheit - 32) * 5/9
+
+T_celsius_str = f"{T_celsius:.1f} °C"
+st.metric(label="Temperatura en Celsius", value=T_celsius_str)
+
+if T_celsius < 0:
+    st.write("¡Está helado, Juan!")
+    
+if T_celsius >= 35:
+    st.write("¡A la piscina, Juancho!")   
+```
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;"}
+[AXIDRAW + STREAMLIT]{style="font-size: 40px; font-weight: bold; margin: 0px"} <br>
+:::
+
+---
+
+## 4 versiones de una app
+
+---
+
+[Procede a mostrar app de Streamlit usando pyaxidraw]
+
+---
+
+## ¿FIN?
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;"}
+[Tras bambalinas...]{style="font-size: 40px; font-weight: bold; margin: 0px"} <br>
+:::
+
+---
+
+##
+
+::: columns
+:::{.column width=50% .fragment .fragment-index-1}
+Expectativa
+
+![](images/expectativa.png)
+:::
+:::{.column width=50% .fragment .fragment-index-2}
+Realidad
+
+![](images/realidad.png)
+:::
+:::
+
+---
+
+## Una incómoda verdad #1
+
+![](images/taller.png)
+
+---
+
+## Una incómoda verdad #2
+
+![](images/practica.png){width=40%}
+
+---
+
+## Consejo para la vida
+
+::: {.incremental}
+* Atreverse a cometer errores
+* Disfrutar el proceso y no tomarse tan en serio "el éxito"
+:::
+
+---
+
+## Actividad 4
+
+## ¿Y, que podríamos hacer ahora?
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 500px; top: 650px; width:2000px; padding: 10px; border-radius: 5px;"}
+[¡GRACIAS!]{style="font-size: 80px; font-weight: bold; margin: 0px"} <br>
+[Streamlit, Axidraw y aprendiendo a aprender]{style="font-size: 40px; font-weight: bold; margin: 0px"} <br>
+[Sebastián Flores, PyDay Valparaíso 2025]{style="font-size: 25px;"}
+:::

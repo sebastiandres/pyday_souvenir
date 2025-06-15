@@ -1,0 +1,9 @@
+streamlit
+opencv-python-headless
+https://cdn.evilmadscientist.com/dl/ad/public/AxiDraw_API.zip
+click
+vpype[all]>=1.10,<2.0
+scikit-image
+svgwrite
+shapely>=1.8
+matplotlib
